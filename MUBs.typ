@@ -133,6 +133,59 @@ We can construct mutually unbiased bases for $d = 3$ with various well establish
 === Weyl-Heisenberg (or generalized Pauli operator): 
 It is the standard technique for prime dimensions. It uses the shift and phase operators $X$ and $Z$, along with their products $X Z^a$ for 
 $a=0,1,…,d-1$, to generate eigenbases that are mutually unbiased. This method scales well with prime $d$ and is algebraically elegant.
+#let omega = $e^(2 pi i / 3)$
+
+// Generalized Pauli (Weyl) operators on C^3
+$ X = [
+  (0, 1, 0),
+  (0, 0, 1),
+  (1, 0, 0),
+] $
+
+$
+Z = [
+  (1, 0, 0),
+  (0, omega, 0),
+  (0, 0, omega^2),
+]
+$
+
+// The 4 MUBs are the eigenbases of  Z,  X,  XZ,  XZ^2.
+// 1) Z-eigenbasis (computational)  B_Z
+$
+B_Z = [
+  (1,0,0),
+  (0,1,0),
+  (0,0,1),
+
+$
+
+// 2) X-eigenbasis  B_X
+$
+B_X = 1/sqrt(3) * [
+  (1, 1, 1),
+  (1, omega, omega^2),
+  (1, omega^2, omega),
+]
+$
+
+// 3) (XZ)-eigenbasis  B_{XZ}
+$
+B_{X Z} = 1/sqrt(3) * [
+  (1, 1, 1),
+  (1, omega, omega^2),
+  (omega, 1, omega^2),
+]
+$
+
+// 4) (XZ^2)-eigenbasis  B_{XZ^2}
+$
+B_{X Z^2} = 1/sqrt(3) * [
+  (1, 1, 1),
+  (1, omega, omega^2),
+  (omega^2, omega, 1),
+]
+$
 
 === Finite field (Galois Field) method: 
 It is another powerful approach, particularly useful for both prime and prime power dimensions. This method uses structure from finite fields $F_d$, which exist for prime $d$. It defines MUB vectors using field-theoretic constructions involving quadratic and linear phase terms. This method is highly generalizable and connects quantum information with abstract algebra.
