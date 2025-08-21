@@ -258,4 +258,17 @@ $
 
 It is possible to use a brute-force numerical or symbolic approach, solving the orthonormality and unbiasedness conditions directly. While this method offers hands-on intuition and is useful for validation, it becomes computationally impractical as the dimension increases.
 
+== Construction of Mutually Unbiased Bases in $d=4$ via the Two-Qubit Pauli/Stabilizer Method
+
+For a Hilbert space of dimension $d$, at most $d+1$ mutually unbiased bases (MUBs) can exist; this maximum is achieved for prime powers. Since $4 = 2^2$, we can construct five MUBs in $C^4$. 
+
+Let the single-qubit Pauli operators be
+
+$X = [[0, 1], [1, 0]], \
+ Y = [[0, -i], [i, 0]], \
+ Z = [[1, 0], [0, -1]].
+ $
+
+ The computational basis for two qubits ordered as:
+  $ket(00),ket(01),ket(10), ket(11)$
 ]
