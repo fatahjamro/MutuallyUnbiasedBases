@@ -133,9 +133,11 @@ We can construct mutually unbiased bases for $d = 3$ with various well establish
 === Weyl-Heisenberg (or generalized Pauli operator): 
 It is the standard technique for prime dimensions. It uses the shift and phase operators $X$ and $Z$, along with their products $X Z^a$ for 
 $a=0,1,…,d-1$, to generate eigenbases that are mutually unbiased. This method scales well with prime $d$ and is algebraically elegant.
-#let omega = $e^(2 pi i / 3)$
 
-// Generalized Pauli (Weyl) operators on C^3
+#let omega = $omega$
+
+Generalized Pauli (Weyl) operators on $C^3$
+$ omega = e^(2 pi i / 3) $
 $ X = [
   (0, 1, 0),
   (0, 0, 1),
