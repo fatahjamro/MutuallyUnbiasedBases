@@ -1,0 +1,1 @@
+bibtex-tidy --omit=abstract,keywords --curly --numeric --align=13 --blank-lines --sort=key --duplicates=key,citation --drop-all-caps --no-escape --sort-fields --strip-comments --trailing-commas --no-tidy-comments --remove-empty-fields --modify bibliography.bib
