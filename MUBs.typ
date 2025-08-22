@@ -275,11 +275,11 @@ $ket(00),ket(01),ket(10), ket(11)$.
 === Commuting partition used
 One convenient disjoint partition of the 15 non-identity Paulis into five maximal commuting sets is:
 $
- S_1 = { Z tensor I, I Z, Z Z }\
- S_2 = { X I, I X, X X }\
- S_3 = { Y I, I Y, Y Y }\
- S_4 = { X Y, Y Z, Z X }\
- S_5 = { X Z, Z Y, Y X }\
+ S_1 = { Z times.circle I, I times.circle Z, Z times.circle Z }\
+ S_2 = { X times.circle I, I times.circle X, X times.circle X }\
+ S_3 = { Y times.circle I, I times.circle Y, Y times.circle Y }\
+ S_4 = { X times.circle Y, Y times.circle Z, Z times.circle X }\
+ S_5 = { X times.circle Z, Z times.circle Y, Y times.circle X }\
 $
 
 ]
