@@ -336,15 +336,25 @@
 ]
 #proof[\
   *Road-map for proof:*\
-  1. Building 3 MUBs for all odd $d = m$ using Weyl operators  and a quadratic Gauss-sum argument
-  - (Weyl operators are generalized Pauli matrices $X, Z$) 
+  1. Constructing 3 MUBs for all powers of $2$, $d=2^a$ using Pauli eigenbases ${X, Y, Z}$ on $a$ qubits.
+  2. Constructing 3 MUBs for all odd dimensions $d = m$ using Weyl operators  and a quadratic Gauss-sum argument
+  - (Weyl operators are generalized Pauli matrices $X, Z$)
   - (A Gauss sum is a finite sum of roots of unity).
-  2. Building 3 MUBs for all powers of two $d=2^a$ using Pauli eigenbases on $a$ qubits.
-  3. Using a tensor-product lemma to combine the odd and even parts, giving 3 MUBs for any $d = 2^a m$ where $m$ is odd.
+  3. Using a tensor-product lemma to combine the odd and even parts will give new 3 pairwise MUBs for any $d = 2^a m$ where $m$ is odd.
 
 Everything here in point 1 and 2 is in MUBs literature separately, we just need to combine them using the tensor-product lemma in point 3.  
 
-  *Step 1:*
+  *Step 1: Power of $2$, $d = 2^a$ (Even dimensions)*
 
+For a single qubit ($d=2$), the eigenbases of $Z$, $X$, and $Y$ are pairwise MUB.
+
+For $a$ qubits ($d=2^a$), take product bases
+$
+  cal(B)_z ^((a)) = "eigenbases of " Z^(times.circle a), quad
+  cal(B)_x ^((a)) = "eigenbases of " X^(times.circle a), quad
+  cal(B)_y ^((a)) = "eigenbases of " Y^(times.circle a) 
+$
+
+If $ket(Phi)$ and $ket(psi)$ are single qubit vectors from different Pauli eigenbases, $abs(braket(Phi, psi))^2 = 1\/sqrt(2)$ and for tensor products across $a$ qubits, the inner products factorize, so the magnitude becomes $(1\/sqrt(2))^a = 1 \/sqrt(2^a)$. Thus these three bases MUB in $2^a$
 
 ]
