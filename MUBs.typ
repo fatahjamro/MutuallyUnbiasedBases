@@ -355,8 +355,106 @@ $
   cal(B)_y ^((a)) = "eigenbases of " Y^(times.circle a) 
 $
 
-If $ket(Phi)$ and $ket(psi)$ are single qubit vectors from different Pauli eigenbases, $abs(braket(Phi, psi))^2 = 1\/sqrt(2)$ and for tensor products across $a$ qubits, the inner products factorize, so the magnitude becomes $(1\/sqrt(2))^a = 1 \/sqrt(2^a)$. Thus these three bases MUB in $2^a$
+If $ket(Phi)$ and $ket(psi)$ are single qubit vectors from different Pauli eigenbases, $abs(braket(Phi, psi))^2 = 1\/sqrt(2)$ and for tensor products across $a$ qubits, the inner products factorize, so the magnitude becomes $(1\/sqrt(2))^a = 1 \/sqrt(2^a)$. Thus these three bases MUB in $2^a$.
 
-*Step 1: Power of $2$, $d = 2^a$ (Even dimensions)*
+*Step 2: three MUBs from Odd dimensions, $d = m$ from $ {Z, X, X Z}$*
+
+General Pauli operators (Weyl operators) on $CC^d$, We fix computational $Z$ - basis ${ket(0), ket(1), ..., ket(d-1)}$ with $braket(j,l)=delta_(j,l)$ (Kronecker delta) and $omega = e^(2 pi i \/ d)$.
+
+$ Z ket(j) = omega^j ket(j) quad X ket(j) = ket((j+1) mod d) $
+
+Two immediate facts:
+1. $Z$ is diagonal in the computational basis.
+2. $X$ is cyclic shift operator (unitary, $X^d = I$), and $ X Z = omega Z X$.
+
+*Phase operator $Z$*
+ 
+Its matrix form is $Z = diag{omega^0, omega^1, ..., omega^{d-1}}$
+
+Suppose $d=3$, then
+$ Z = 
+  mat(
+      1, 0, 0;
+      0, omega, 0;
+      0, 0, omega^2)$
+
+*Shift operator $X$*
+
+suppose $d=3$, then $X ket(0) = ket(1)$, $X ket(1) = ket(2)$, $X ket(2) = ket(0)$.
+  
+$ X = 
+  mat(
+      0, 0, 1;
+      1, 0, 0;
+      0, 1, 0)$
+For convenience the X matrix is often written as
+  $ X = 
+  mat(
+      0, 1, 0;
+      0, 0, 1;
+      1, 0, 0)$
+
+
+=== $Z$ and $X$ are mutually Unbiased:
+
+Fourier Vectors (i.e. $X$-eigenbasis)
+$
+  ket(x_k) = 1/sqrt(d) sum_(j=0)^(d-1) omega^(l k) ket(l)
+$
+
+Compute $braket(j,x_k)$ 
+$
+  braket(j,x_k) = bra(j)1/sqrt(d) sum_(l=0)^(d-1) omega^(l k) ket(l) = 1/sqrt(d) sum_(l=0)^(d-1) omega^(j k)braket(j,l).
+$
+use orthonormality $braket(j,l) = delta_(j,l)$ to pick out $l=j$ term:
+$
+  braket(j,x_k) = 1/sqrt(d) omega^(j k)= 1/sqrt(d).
+$
+because $abs(omega^(j k)) = 1$, its magnitude squared is
+$  abs(braket(j,x_k))^2 = 1/d.
+$ 
+the kronecker delta makes every term zero except when $j=l$, and the remaining term has unit modulus.
+
+Similarly, it also works for reverse overlap: 
+$braket(x_k',j) = (braket(j,x_k'))^* = 1/sqrt(d) omega^(-j k)$. same magnitude $1\/sqrt(d)$.
+
+*In terms of Matrices:*
+The $d times d $ Fourier matrix $F$ columns are the $X$-eigenbasis, with entries $F_(j,k) = 1/sqrt(d) omega^(j k)$. The vector $ket(x_k)$ is just the $k$-th column of $F$, so $braket(j,x_k)$ is the $(j,k)$ entry of $1/sqrt(d) omega^(j k)$.
+
+Suppose $d=3$, then
+$ket(x_0)= 1/sqrt(3) vec(1, 1, 1)$, $ket(x_1)= 1/sqrt(3) vec(1, omega, omega^2)$, $ket(x_2)= 1/sqrt(3) vec(1, omega^2, omega)$.
+
+then e.g. $braket(2,x_1)$ is the third component of $ket(x_1)$, which is $braket(2,x_1) = 1/sqrt(3) omega^2.1$, whose magnitude is $1\/sqrt(3) quad forall omega^2 = 1$.
+
+Hence $Z$ and $X$ are mutually unbiased.
+
+*Third basis by diagonalizing $X Z$ (odd $d$)*
+
+The trick is a quadratic phase ("Chirp"):
+$ 
+  ket(u_k) = 1/sqrt(d) sum_(l=0)^(d-1) omega^(r l^2 + k l) ket(l), quad quad k = 0, 1, ..., d-1
+$
+
+Since $d$ is odd, 2 has a multiplicative inverse modulo $d$. Choose
+$r in {0, 1, dots, d-1}$ such that $2 r equiv 1 mod(d)$.
+Equivalently, $r equiv 1 / 2 mod(d)$.
+
+Quick examples:
+
+$d=3: r =(3+1)\/2=2 text(.) quad text("Check") 2 dot 2 = 4 equiv 1 (mod 3)$
+
+$d=5: r =(5+1)\/2=3 text(.) quad text("Check") 2 dot 3 = 6 equiv 1 (mod 5)$
+
+$d=7: r =(7+1)\/2=4 text(.) quad text("Check") 2 dot 4 = 8 equiv 1 (mod 7)$
+
+These will be eigenvectors of $X Z$. Compute $X Z ket(l) = Z ket(l+1) = omega^(l+1) ket(l+1)$, then
+
+$
+  X Z ket(u_k) &= 1/sqrt(d) sum_(l=0)^(d-1) omega^(r l^2 + k l) Z ket(l+1) \
+               &= 1/sqrt(d) sum_(l=0)^(d-1) omega^(r l^2 + k l) omega^(l+1) ket(l+1) \
+               &= 1/sqrt(d) sum_(m=0)^(d-1) omega^(r (m-1)^2 + k (m-1)) omega^m ket(m) \
+               &= 1/sqrt(d) sum_(m=0)^(d-1) omega^(r m^2 - 2 r m + r + k m - k) omega^m ket(m) \
+               &= 1/sqrt(d) sum_(m=0)^(d-1) omega^(r m^2 + (k - 2 r + 1)m + (r - k)) ket(m)
+$
 
 ]
