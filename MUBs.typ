@@ -168,7 +168,7 @@
   $
 
   Therefore, no 4th basis for d=2 can exist.
-
+]
 
   == Mutually unbiased bases for $d = 3$
 
@@ -330,5 +330,21 @@
     S_4 = { X times.circle Y, Y times.circle Z, Z times.circle X }\
     S_5 = { X times.circle Z, Z times.circle Y, Y times.circle X }\
   $
+
+#theorem([At least three mutually unbiased bases exist @WOOTTERS1989optimalStateMUB @ivanovic1981geometricaldescriptionquantal @Zyczkowski2017Geometryofquantumstates])[
+  For any dimension $d >= 2$, there exist three pairwise mutually unbiased bases (MUBs) in Hilbert space $CC^(d)$.
+]
+#proof[\
+  *Road-map for proof:*\
+  1. Building 3 MUBs for all odd $d = m$ using Weyl operators  and a quadratic Gauss-sum argument
+  - (Weyl operators are generalized Pauli matrices $X, Z$) 
+  - (A Gauss sum is a finite sum of roots of unity).
+  2. Building 3 MUBs for all powers of two $d=2^a$ using Pauli eigenbases on $a$ qubits.
+  3. Using a tensor-product lemma to combine the odd and even parts, giving 3 MUBs for any $d = 2^a m$ where $m$ is odd.
+
+Everything here in point 1 and 2 is in MUBs literature separately, we just need to combine them using the tensor-product lemma in point 3.  
+
+  *Step 1:*
+
 
 ]
