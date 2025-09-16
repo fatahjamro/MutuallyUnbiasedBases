@@ -486,4 +486,22 @@ Therefore $ abs(braket(x_k',u_k)) = (abs(G(r;d))/d)= 1/sqrt(d) $.
 This proves that $X Z$-eigenbasis unbiased with the $X$-eigenbasis.
 Putting it all together, for odd $d$, the three bases $Z$-eigenbasis, $X$-eigenbasis, and $X Z$-eigenbasis are pairwise mutually unbiased.
 
+*Step 3: Tensor-product lemma to combine even and odd parts $=>$ any $d 2^a m$ (with $m$ odd*)
+
+Lemma (Tensor-product MUB):
+
+If ${A}_(i=0) ^r$ are MUBs in dimension $d_1$ and ${B}_(i=0)^r$ are MUBs in dimension $d_2$, then ${A_(i) times.circle B_(i)}_(i=0)^r$ are MUBs in dimension $d_1 d_2$.
+
+*Proof of lemma:*
+Pick unit vectors $ a in A_i, a' in A_j$ and  $ b in B_i, b' in B_j$.
+Then
+$
+  braket(a times.circle b, a' times.circle b') = braket(a,a') braket(b,b') = 1/sqrt(d_1) dot 1/sqrt(d_2) = 1/sqrt(d_1 d_2) quad forall i != j
+$
+
+Now we can write any dimension $d$ as $d = 2^a m$ (with $m$ odd).
+
+- Using step 1, to get three MUBs ${A_1, A_2, A_3}$ in $2^a.$
+- Using step 2, to get three MUBs ${B_1, B_2, B_3}$ in $m$.
+- Applying the tensor-product lemma, we get three MUBs ${A_i times.circle B_i}_(i=1)^3$ in $d = 2^a m$.
 ]
