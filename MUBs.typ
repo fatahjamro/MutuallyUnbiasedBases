@@ -357,4 +357,6 @@ $
 
 If $ket(Phi)$ and $ket(psi)$ are single qubit vectors from different Pauli eigenbases, $abs(braket(Phi, psi))^2 = 1\/sqrt(2)$ and for tensor products across $a$ qubits, the inner products factorize, so the magnitude becomes $(1\/sqrt(2))^a = 1 \/sqrt(2^a)$. Thus these three bases MUB in $2^a$
 
+*Step 1: Power of $2$, $d = 2^a$ (Even dimensions)*
+
 ]
