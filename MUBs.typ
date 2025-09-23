@@ -331,6 +331,9 @@
     S_5 = { X times.circle Z, Z times.circle Y, Y times.circle X }\
   $
 
+
+= Proof that at least three MUBs exist in any dimensions.
+
 #theorem([At least three mutually unbiased bases exist @WOOTTERS1989optimalStateMUB @ivanovic1981geometricaldescriptionquantal @Zyczkowski2017Geometryofquantumstates])[
   For any dimension $d >= 2$, there exist three pairwise mutually unbiased bases (MUBs) in Hilbert space $CC^(d)$.
 ]
@@ -452,7 +455,7 @@ These will be eigenvectors of $X Z$. Compute $X Z ket(l) = Z ket(l+1) = omega^(l
 $
   X Z ket(u_k) &= 1/sqrt(d) sum_(l=0)^(d-1) omega^(r l^2 + k l) Z ket(l+1) \
                &= 1/sqrt(d) sum_(l=0)^(d-1) omega^(r l^2 + k l) omega^(l+1) ket(l+1) \
-               &= 1/sqrt(d) sum_(m=0)^(d-1) omega^(r (m-1)^2 + k (m-1)) omega^m ket(m) quad quad forall m = l + 1 ,\
+               &= 1/sqrt(d) sum_(m=0)^(d-1) omega^(r (m-1)^2 + k (m-1)) omega^m ket(m) quad quad forall l = m - 1 ,\
                &= 1/sqrt(d) sum_(m=0)^(d-1) omega^(r m^2 - 2 r m + r + k m - k) omega^m ket(m) \
                &= 1/sqrt(d) sum_(m=0)^(d-1) omega^(r m^2 + (k - 2 r + 1)m + (r - k)) ket(m) 
 $
@@ -460,7 +463,7 @@ Because $2 r equiv 1 mod(d)$, the coefficient of $m$ simplifies:  $ -2 r + k + 1
 
 Hence 
 $
-  X Z ket(u_k) = omega^(r - k) 1/sqrt(d) sum_m omega^(r m^2+k m) ket(m) = omega^(r - k) ket(u_k).
+  X Z ket(u_k) = omega^(r - k) 1/sqrt(d) sum_m omega^(r m^2+k m) ket(m) = omega^(r - k) ket(u_k). quad forall quad m -> l.
 $
 
 so $ket(u_k)$ is an eigenvector of $X Z $. Vectors ${ket(u_k)}_(k=0)^{d-1}$ form the eigenbasis.
