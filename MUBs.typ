@@ -470,21 +470,39 @@ so $ket(u_k)$ is an eigenvector of $X Z $. Vectors ${ket(u_k)}_(k=0)^{d-1}$ form
 
 *Unbiasedness of $Z$ - basis and $X Z$ - basis:*
 
-$ braket(j,u_k) = 1/sqrt(d) omega^(r +j^2 + k j) quad => quad  abs(braket(j,u_k)) = 1/sqrt(d) omega^(-j k) quad quad forall omega^(-j k) = 1 $.
+$ braket(j,u_k) = 1/sqrt(d) omega^(r +j^2 + k j) quad => quad  abs(braket(j,u_k)) = 1/sqrt(d) omega^(-j k) quad quad forall omega^(-j k) = 1 $
 
 *Unbiasedness of $X$ - basis and $X Z$ - basis:*
-$ braket(x_k',u_k) = 1/d sum_(j=0)^(d-1) omega^(r j^2 + (k - k') j) $.
+
+$X$ - bases are $ket(x_k') = 1/sqrt(d) sum_(l=0)^(d-1) omega^(l k') ket(l)$
+ 
+$X Z$ - bases are  $ket(u_k) = 1/sqrt(d) sum_(l=0)^(d-1) omega^(r l^2 + k l) ket(l)$
+
+$ 
+  braket(x_k',u_k) = braket((ket(1/sqrt(d) sum_(l=0)^(d-1) omega^(l k') ket(l))), 1/sqrt(d) sum_(l=0)^(d-1) omega^(r l^2 + k l) ket(l))
+$
+
+$ 
+braket(x_k',u_k) = 1/sqrt(d) 1/sqrt(d) sum_(l=0)^(d-1) omega^((l k') + (r l^2 + k l))
+$
+
+
+$ 
+braket(x_k',u_k) = 1/d sum_(l=0)^(d-1) omega^(r l^2 + (k - k') l)
+$
+
+Simplifying the power of $omega$ using completing the square technique:
 $ r l^2 + (k -k')l = r (l + (k - k')/(2r))^2 - (k - k')^2/(4r) $
 
 so
 
 $
-  braket(x_k',u_k) = omega^(-(k - k')^2/(4r)) / d sum_(j=0)^(d-1) omega^(r (j + (k - k')/(2r))^2) = omega^(-(k - k')^2/(4r)) / d sum_(j=0)^(d-1) G(r;d)
+  braket(x_k',u_k) = omega^(-(k - k')^2/(4r)) / d sum_(j=0)^(d-1) omega^(r (l + (k - k')/(2r))^2) = omega^(-(k - k')^2/(4r)) / d sum_(j=0)^(d-1) G(r;d)
 $
 
-where $G(r;d) = sum_(j=0)^(d-1) omega^(r j^2)$ is a quadratic Gauss sum. For odd $d$, with gcd(r,d)=1, $ abs(G(r;d)) = sqrt(d) $.
+where $G(r;d) = sum_(j=0)^(d-1) omega^(r j^2)$ is a quadratic Gauss sum. For odd $d$, with gcd(r,d)=1, $ abs(G(r;d)) = sqrt(d) $
 
-Therefore $ abs(braket(x_k',u_k)) = (abs(G(r;d))/d)= 1/sqrt(d) $.
+Therefore $ abs(braket(x_k',u_k)) = (abs(G(r;d))/d)= 1/sqrt(d) $
 
 This proves that $X Z$-eigenbasis unbiased with the $X$-eigenbasis.
 Putting it all together, for odd $d$, the three bases $Z$-eigenbasis, $X$-eigenbasis, and $X Z$-eigenbasis are pairwise mutually unbiased.
