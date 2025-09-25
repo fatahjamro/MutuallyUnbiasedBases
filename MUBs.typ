@@ -170,7 +170,7 @@
   Therefore, no 4th basis for d=2 can exist.
 ]
 
-  == Mutually unbiased bases for $d = 3$
+  === Mutually unbiased bases for $d = 3$
 
   We can construct mutually unbiased bases for $d = 3$ with various well established methods, such as:
 
@@ -308,7 +308,7 @@
 
   It is possible to use a brute-force numerical or symbolic approach, solving the orthonormality and unbiasedness conditions directly. While this method offers hands-on intuition and is useful for validation, it becomes computationally impractical as the dimension increases.
 
-  == Construction of Mutually Unbiased Bases in $d=4$ via the Two-Qubit Pauli/Stabilizer Method
+  === Construction of Mutually Unbiased Bases in $d=4$ via the Two-Qubit Pauli/Stabilizer Method
 
   For a Hilbert space of dimension $d$, at most $d+1$ mutually unbiased bases (MUBs) can exist; this maximum is achieved for prime powers. Since $4 = 2^2$, we can construct five MUBs in $C^4$.
 
@@ -433,9 +433,11 @@ Hence $Z$ and $X$ are mutually unbiased.
 
 *Third basis by diagonalizing $X Z$ (odd $d$)*
 
+For the third basis, we use eigenvectors of $X Z$ and one convenient eigenbasis is formed by quadratic chirps.
+
 The trick is a quadratic phase ("Chirp"):
 $ 
-  ket(u_k) = 1/sqrt(d) sum_(l=0)^(d-1) omega^(r l^2 + k l) ket(l), quad quad k = 0, 1, ..., d-1
+  ket(u_k ^((r))) = 1/sqrt(d) sum_(l=0)^(d-1) omega^(r l^2 + k l) ket(l), quad quad k = 0, 1, ..., d-1
 $
 
 Since $d$ is odd, 2 has a multiplicative inverse modulo $d$. Choose
@@ -525,4 +527,84 @@ Now we can write any dimension $d$ as $d = 2^a m$ (with $m$ odd).
 - Using step 1, to get three MUBs ${A_1, A_2, A_3}$ in $2^a.$
 - Using step 2, to get three MUBs ${B_1, B_2, B_3}$ in $m$.
 - Applying the tensor-product lemma, we get three MUBs ${A_i times.circle B_i}_(i=1)^3$ in $d = 2^a m$.
+
+
+== Proof for $d+1$ Mutually Unbiased Bases exist for any dimension $d$ (when $d$ is Prime $p$ or Power of Prime $p^n$).
+
+Here We try to prove that there exist complete set  ($d+1$) mutually unbiased bases in any dimension $d$ when $d$ is a prime or a power of a prime. 
+
+For other dimensions (e.g. $6, 10, 12, ... $), a full set of MUBs is not known, the problem is still open.
+
+We start with the case when $d$ is a prime $p$: 
+
+#theorem([Complete set of MUBs for prime dimensions $p$ @WOOTTERS1989optimalStateMUB])[
+  For any prime dimension $d = p$, there exist at most $d+1$ pairwise mutually unbiased bases (MUBs) in Hilbert space $CC^(d)$ or $CC^p$.]
+
+We want $p+1$ orthonormal bases of $CC^p$ such that any two different bases are mutually unbiased (every cross-overlap has magnitude $1/sqrt(p)$).
+
+We will get them as:
+
+One standard (computational) basis, and $p$ “quadratic chirp” bases, one for each parameter $r∈{0,1,…,p-1}$, together they become $p+1$ MUBs.
+
+#proof[
+  *Step 1: The standard (computational) basis*
+
+  The standard basis is the eigenbasis of the $Z$ operator:
+  $
+    cal(B)_z = {ket(0), ket(1), ..., ket(p-1)}
+  $
+  where $Z ket(j) = omega^j ket(j)$ and $omega = e^(2 pi i / p)$ is a primitive $p$-th root of unity.
+
+  *Step 2: The quadratic chirp bases*
+
+  For each $r in {0, 1, ..., p-1}$, define a basis
+  $
+    cal(B)_r = {ket(u_k ^((r)))}_(k=0)^(p-1)
+  $
+  where vectors are given by
+  $
+    ket(u_k ^((r))) = 1/sqrt(p) sum_(l=0)^(p-1) omega^(r l^2 + k l) ket(l)
+  $
+
+
+- $r=0$ gives the Fourier basis (no $l^2$ term, just $omega^(k l)$).
+
+- $r=1,2,…,p-1$ give the quadratic-phase (“chirp”) bases.
+
+  These are the eigenbases of the operators $X Z^r$, where $X$ is the cyclic shift operator defined by $X ket(j) = ket((j+1) mod p)$.
+
+  *Step 3: Proving mutual unbiasedness*
+
+  We need to show that each $cal(B)_r$ is orthonormal basis. 
+  
+  For fixed $r$, lets compute
+  $ braket(u_k ^((r)), u_(k') ^((r))) = 1/sqrt(p) sum_(l=0)^(p-1) omega^(r l^2 + k l) 1/sqrt(p) sum_(m=0)^(p-1) omega^(-r m^2 - k' m) braket(l,m) $
+  The $omega^(r l^2)$ factor cancels inside the inner product because it appears with its complex conjugate and using orthonormality $braket(l,m) = delta_(l,m)$, (Kronecker delta), we get: 
+  $ braket(u_k ^((r)), u_(k') ^((r))) = 1/p
+  sum_(l=0)^(p-1) omega^(r l^2 + k l - r l^2 - k' l) = 1/p sum_(l=0)^(p-1) omega^((k - k') l)
+  $
+
+  If $k = k'$, this is $1/p sum_(l=0)^(p-1) 1 = 1/p (p)= 1$. 
+  
+  If $k != k'$, this is a geometric series with ratio $omega^(k - k') != 1$, so the sum is zero. Thus, each $cal(B)_r$ is an orthonormal basis with $p$ vectors.
+
+  - The standard basis $cal(B)_z$ is mutually unbiased with each quadratic chirp basis $cal(B)_r$.
+  - Any two different quadratic chirp bases $cal(B)_r$ and $cal(B)_s$ (for $r != s$) are mutually unbiased.
+
+  **Unbiasedness between $cal(B)_z$ and $cal(B)_r$:**
+
+  Compute the overlap:
+  $
+    braket(j, u_k ^((r))) = bra(j) (1/sqrt(p) sum_(l=0)^(p-1) omega^(r l^2 + k l) ket(l)) = 1/sqrt(p) omega^(r j^2 + k j)
+  $
+  The magnitude squared is:
+  $
+    abs(braket(j, u_k ^((r))))^2 = (1/sqrt(p))^2 abs(omega^(r j^2 + k j))^2 = 1/p
+  $
+  since $abs(omega^(text("anything"))) = 1$. Thus, $cal(B)_z$ and $cal(B)_r$ are mutually unbiased.
+
+  **
+]
+
+
 ]
