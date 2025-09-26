@@ -528,6 +528,7 @@ Now we can write any dimension $d$ as $d = 2^a m$ (with $m$ odd).
 - Using step 2, to get three MUBs ${B_1, B_2, B_3}$ in $m$.
 - Applying the tensor-product lemma, we get three MUBs ${A_i times.circle B_i}_(i=1)^3$ in $d = 2^a m$.
 
+]
 
 == Proof for $d+1$ Mutually Unbiased Bases exist for any dimension $d$ (when $d$ is Prime $p$ or Power of Prime $p^n$).
 
@@ -565,7 +566,6 @@ One standard (computational) basis, and $p$ “quadratic chirp” bases, one for
   $
     ket(u_k ^((r))) = 1/sqrt(p) sum_(l=0)^(p-1) omega^(r l^2 + k l) ket(l)
   $
-
 
 - $r=0$ gives the Fourier basis (no $l^2$ term, just $omega^(k l)$).
 
@@ -687,8 +687,5 @@ $ abs(1/5(3 + 2 cos(2 pi / 5)))^2 = 1/25 (3 + ( sqrt(5)-1)/2)^2\ = 1/25 ( (5 + s
 = 0.7236... > 1/5 = 0.2 $
 overlap is greater than $1/5$, so these two bases are not mutually unbiased. 
 
-  Thus, we have shown that for prime dimension $p$, there exist exactly $p+1$ mutually unbiased bases, and no more.
-
-]
-
+Thus, we have shown that for prime dimension $p$, there exist exactly $p+1$ mutually unbiased bases, and no more.
 ]
