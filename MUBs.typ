@@ -590,8 +590,6 @@ One standard (computational) basis, and $p$ “quadratic chirp” bases, one for
 
   *Each  $cal(B)_r$ is mutually unbiased with the standard basis $cal(B)_z$*
 
-  - Any two different quadratic chirp bases $cal(B)_r$ and $cal(B)_s$ (for $r != s$) are mutually unbiased.
-
   **Unbiasedness between $cal(B)_z$ and $cal(B)_r$:**
 
   Compute the overlap:
