@@ -689,3 +689,11 @@ overlap is greater than $1/5$, so these two bases are not mutually unbiased.
 
 Thus, we have shown that for prime dimension $p$, there exist exactly $p+1$ mutually unbiased bases, and no more.
 ]
+
+#theorem([Complete set of MUBs for prime power dimensions $p^n$ @WOOTTERS1989optimalStateMUB])[
+  For any prime power dimension $d = p^n$, there exist at most $d+1$ pairwise mutually unbiased bases (MUBs) in Hilbert space $CC^(d)$ or $CC^(p^n)$.]
+
+#proof[
+  The proof for prime power dimensions $d = p^n$ uses finite field theory and properties of generalized Pauli operators (Weyl operators) in higher dimensions.
+  
+]
