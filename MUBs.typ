@@ -575,7 +575,7 @@ One standard (computational) basis, and $p$ “quadratic chirp” bases, one for
 
   *Step 3: Proving mutual unbiasedness*
 
-  We need to show that each $cal(B)_r$ is orthonormal basis. 
+   We need to show that each $cal(B)_r$ basis is orthonormal basis. 
   
   For fixed $r$, lets compute
   $ braket(u_k ^((r)), u_(k') ^((r))) = 1/sqrt(p) sum_(l=0)^(p-1) omega^(r l^2 + k l) 1/sqrt(p) sum_(m=0)^(p-1) omega^(-r m^2 - k' m) braket(l,m) $
@@ -588,7 +588,8 @@ One standard (computational) basis, and $p$ “quadratic chirp” bases, one for
   
   If $k != k'$, this is a geometric series with ratio $omega^(k - k') != 1$, so the sum is zero. Thus, each $cal(B)_r$ is an orthonormal basis with $p$ vectors.
 
-  - The standard basis $cal(B)_z$ is mutually unbiased with each quadratic chirp basis $cal(B)_r$.
+  *Each  $cal(B)_r$ is mutually unbiased with the standard basis $cal(B)_z$*
+
   - Any two different quadratic chirp bases $cal(B)_r$ and $cal(B)_s$ (for $r != s$) are mutually unbiased.
 
   **Unbiasedness between $cal(B)_z$ and $cal(B)_r$:**
@@ -603,8 +604,60 @@ One standard (computational) basis, and $p$ “quadratic chirp” bases, one for
   $
   since $abs(omega^(text("anything"))) = 1$. Thus, $cal(B)_z$ and $cal(B)_r$ are mutually unbiased.
 
-  **
-]
+  *Any two different quadratic chirp bases $cal(B)_r$ and $cal(B)_r'$ (for $r != r'$) are mutually unbiased.*
 
+  For $r != r'$, compute the overlap:
+  $
+    braket(u_k ^((r)), u_(k') ^((r'))) &= 1/sqrt(p) sum_(l=0)^(p-1) omega^(r l^2 + k l) 1/sqrt(p) sum_(l=0)^(p-1) omega^(-r' l^2 - k' l) braket(l,l)\
+    &=1/p sum_(l=0)^(p-1) omega^((r - r') l^2 + (k - k') l)\
+    & = 1/p (sqrt(p)) = 1/sqrt(p)
+$
+This is a quadratic Gauss sum with nonzero quadratic coefficient $(r - r')$ (since $r != r'$) and $p$ prime. Such Gauss sums have magnitude $sqrt(p)$ as per classical number theory.
+Thus, $cal(B)_r$ and $cal(B)_r'$ are mutually unbiased because absolute square of their inner product becomes $1/p$.
+
+*Example ($p = 5$)*
+
+For $p = 5$, we have $5 + 1 = 6$ MUBs:
+
+1. The standard basis $ cal(B)_z = {ket(0), ket(1), ket(2), ket(3), ket(4)} $
+
+2. The Fourier basis $cal(B)_(r= 0) = {ket(u_k ^(0})}_{k=0}^{4}$
+
+$ &= {1/sqrt(5) sum_(l=0)^(4) omega^(0 l^2 + k l) ket(l)} = {1/sqrt(5) sum_(l=0)^(4) omega^(k l) ket(l)} \
+&= {1/sqrt(5) vec(1, 1, 1, 1, 1), 1/sqrt(5) vec(1, omega, omega^2, omega^3, omega^4), 1/sqrt(5) vec(1, omega^2, omega^4, omega, omega^3), 1/sqrt(5) vec(1, omega^3, omega, omega^4, omega^2), 1/sqrt(5) vec(1, omega^4, omega^3, omega^2, omega)} $
+
+where $omega = e^(2 pi i \/ 5)$ is a primitive fifth root of unity, $r$ show the basis, $k$ is column vector and $l$ is the component of the vector $k$.
+
+3. The quadratic chirp bases $cal(B)_1, cal(B)_2, cal(B)_3, cal(B)_4$
+
+$ cal(B)_1 = {ket(u_k ^(1)})}_{k=0}^{4} = {1/sqrt(5) sum_(l=0)^(4) omega^(1 l^2 + k l) ket(l)} \ $
+
+$ { 1 / sqrt(5) vec(1, omega, omega^4, omega^4, omega),
+1 / sqrt(5) vec(1, omega^2, omega, omega^2, 1),
+1 / sqrt(5) vec(1, omega^3, omega^3, 1, omega^4),
+1 / sqrt(5) vec(1, omega^4, 1, omega^3, omega^3),
+1 / sqrt(5) vec(1, 1, omega^2, omega, omega^2)} $
+
+$ cal(B)_2 = {ket(u_k ^(2)})}_{k=0}^{4} = {1/sqrt(5) sum_(l=0)^(4) omega^(2 l^2 + k l) ket(l)} \
+= {1/sqrt(5) vec(1, omega^2, omega^3, omega^3, omega^2), 
+1/sqrt(5) vec(1, omega^3, 1, omega, omega), 
+1/sqrt(5) vec(1, omega^4, omega^2, omega^4, 1), 
+1/sqrt(5) vec(1, 1,omega^4, omega^2, omega^4), 
+1/sqrt(5) vec(1, omega, omega, 1, omega^3)} $
+
+$ cal(B)_3 = {ket(u_k ^(3)})}_{k=0}^{4} = {1/sqrt(5) sum_(l=0)^(4) omega^(3 l^2 + k l) ket(l)} \
+= {1/sqrt(5) vec(1, omega^3, omega^2, omega^2, omega^3), 
+1/sqrt(5) vec(1, omega^4, omega^4, 1, omega^2), 
+1/sqrt(5) vec(1, 1, omega, omega^3, omega), 
+1/sqrt(5) vec(1, omega, omega^3, omega, 1), 
+1/sqrt(5) vec(1, omega^2, 1, omega^4, omega^4)} $
+
+$ cal(B)_4 = {ket(u_k ^(4)})}_{k=0}^{4} = {1/sqrt(5) sum_(l=0)^(4) omega^(4 l^2 + k l) ket(l)} \
+= {1/sqrt(5) vec(1, omega^4, omega, omega, omega^4), 
+1/sqrt(5) vec(1, 1, omega^3, omega^4, omega^3), 
+1/sqrt(5) vec(1, omega, 1, omega^2, omega^2), 
+1/sqrt(5) vec(1, omega^2, omega^2, 1, omega), 
+1/sqrt(5) vec(1, omega^3, omega^4, omega^3, 1)} $ 
+]
 
 ]
