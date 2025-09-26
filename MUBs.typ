@@ -590,7 +590,7 @@ One standard (computational) basis, and $p$ “quadratic chirp” bases, one for
 
   *Each  $cal(B)_r$ is mutually unbiased with the standard basis $cal(B)_z$*
 
-  **Unbiasedness between $cal(B)_z$ and $cal(B)_r$:**
+  *Unbiasedness between $cal(B)_z$ and $cal(B)_r$:*
 
   Compute the overlap:
   $
