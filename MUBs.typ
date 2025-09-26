@@ -656,6 +656,39 @@ $ cal(B)_4 = {ket(u_k ^(4)})}_{k=0}^{4} = {1/sqrt(5) sum_(l=0)^(4) omega^(4 l^2 
 1/sqrt(5) vec(1, omega, 1, omega^2, omega^2), 
 1/sqrt(5) vec(1, omega^2, omega^2, 1, omega), 
 1/sqrt(5) vec(1, omega^3, omega^4, omega^3, 1)} $ 
+
+Now we there are no more that $p+1$ MUBs in dimension $p$ (prime). Let suppose there is a 7th basis $cal(B)_x$ which we create randomly, such that it is orthonormal then verify if that is mutually unbiased with the previous 6 bases.
+
+The basis $cal(B)_X$ is given by the set of five vectors ${ket(v_k)}_{k=0}^4$, where $omega = e^(2pi i / 5) $.
+$ cal(B)_X = {ket(v_k)}_{k=0}^4 $
+$ ket(v_0) = 1/sqrt(5) (1, omega, omega^3, omega^2, omega^4) $
+$ ket(v_1) = 1/sqrt(5) (1, omega^2, omega, omega^4, omega^3) $
+$ ket(v_2) = 1/sqrt(5) (1, omega^3, omega^4, omega, omega^2) $
+$ ket(v_3) = 1/sqrt(5) (1, omega^4, omega^2, omega^3, omega) $
+$ ket(v_4) = 1/sqrt(5) (1, 1, 1, 1, 1) $
+
+We can check that $cal(B)_X$ is orthonormal, but it is mutually unbiased with the standard basis $cal(B)_z$ only, but not with the other 5 bases. For example, check with Fourier basis $cal(B)_0, k = 1$ :
+
+$ ket(v_0) = 1/sqrt(5) (1, omega, omega^3, omega^2, omega^4) $
+
+$ ket(u_1 ^(0)) = 1/sqrt(5) (1, omega, omega^2, omega^3, omega^4) $
+
+$ braket(v_0, u_1 ^(0)) = 1/5 (1 + omega^(-1) omega^1 + omega^(-3) omega^2 + omega^(-2) omega^3 + omega^(-4) omega^4)\ 
+= 1/5 (1 + 1 + omega^(-1) + omega^1 + 1)\
+= 1/5 (3 + omega^(-1) + omega^1)$
+
+Taking the absolute square of the inner product:
+$ abs(braket(v_0, u_1 ^(0)))^2 = abs(1/5(3 + omega^(-1) + omega^1))^2 $
+
+Recall that $omega = e^(2 pi i / 5) = cos(2 pi / 5) + i sin(2 pi / 5)$ and $omega^(-1) = cos(2 pi / 5) - i sin(2 pi / 5)$, so
+
+$ omega^(-1) + omega^1 = 2 cos(2 pi / 5) $
+$ abs(1/5(3 + 2 cos(2 pi / 5)))^2 = 1/25 (3 + ( sqrt(5)-1)/2)^2\ = 1/25 ( (5 + sqrt(5))/2)^2\
+= 0.7236... > 1/5 = 0.2 $
+overlap is greater than $1/5$, so these two bases are not mutually unbiased. 
+
+  Thus, we have shown that for prime dimension $p$, there exist exactly $p+1$ mutually unbiased bases, and no more.
+
 ]
 
 ]
