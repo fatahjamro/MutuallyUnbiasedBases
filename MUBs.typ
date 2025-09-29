@@ -695,5 +695,14 @@ Thus, we have shown that for prime dimension $p$, there exist exactly $p+1$ mutu
 
 #proof[
   The proof for prime power dimensions $d = p^n$ uses finite field theory and properties of generalized Pauli operators (Weyl operators) in higher dimensions.
-  
+
 ]
+
+
+
+= Connection between mutually unbiased bases (MUBs) and quantum Latin squares (QLSs)
+
+#definition([Quantum Latin Square @musto2017ConstructingMutuallyUnbiased])[
+  A quantum Latin square (QLS) of order $n$ is an $n times n$ array of elements of Hilbert space $CC^n$, such that every row and every column is an orthonormal basis.]
+
+  
