@@ -578,11 +578,13 @@ One standard (computational) basis, and $p$ “quadratic chirp” bases, one for
    We need to show that each $cal(B)_r$ basis is orthonormal basis. 
   
   For fixed $r$, lets compute
-  $ braket(u_k ^((r)), u_(k') ^((r))) = 1/sqrt(p) sum_(l=0)^(p-1) omega^(r l^2 + k l) 1/sqrt(p) sum_(m=0)^(p-1) omega^(-r m^2 - k' m) braket(l,m) $
-  The $omega^(r l^2)$ factor cancels inside the inner product because it appears with its complex conjugate and using orthonormality $braket(l,m) = delta_(l,m)$, (Kronecker delta), we get: 
+  // $ braket(u_k ^((r)), u_(k') ^((r))) = 1/sqrt(p) sum_(l=0)^(p-1) omega^(r l^2 + k l) 1/sqrt(p) sum_(m=0)^(p-1) omega^(-r m^2 - k' m) braket(l,m) $
+
   $ braket(u_k ^((r)), u_(k') ^((r))) = 1/p
   sum_(l=0)^(p-1) omega^(r l^2 + k l - r l^2 - k' l) = 1/p sum_(l=0)^(p-1) omega^((k - k') l)
   $
+
+  The $omega^(r l^2)$ factor cancels inside the inner product because it appears with its complex conjugate and using orthonormality $braket(l,l) = delta_(l,l)$, (Kronecker delta), we get: 
 
   If $k = k'$, this is $1/p sum_(l=0)^(p-1) 1 = 1/p (p)= 1$. 
   
@@ -606,7 +608,8 @@ One standard (computational) basis, and $p$ “quadratic chirp” bases, one for
 
   For $r != r'$, compute the overlap:
   $
-    braket(u_k ^((r)), u_(k') ^((r'))) &= 1/sqrt(p) sum_(l=0)^(p-1) omega^(r l^2 + k l) 1/sqrt(p) sum_(l=0)^(p-1) omega^(-r' l^2 - k' l) braket(l,l)\
+    braket(u_k ^((r)), u_(k') ^((r'))) 
+    //&= 1/sqrt(p) sum_(l=0)^(p-1) omega^(r l^2 + k l) 1/sqrt(p) sum_(l=0)^(p-1) omega^(-r' l^2 - k' l) braket(l,l)\
     &=1/p sum_(l=0)^(p-1) omega^((r - r') l^2 + (k - k') l)\
     & = 1/p (sqrt(p)) = 1/sqrt(p)
 $
