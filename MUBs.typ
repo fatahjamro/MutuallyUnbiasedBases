@@ -809,7 +809,7 @@ Specifically, we can:
 + Permute the last $N-1$ rows (keeping the first row fixed) in $(N-1)!$ ways.
 
 This gives us a direct relationship between the number of reduced
-squares ($l_N$) and the total number of Latin squares ($L_N$):
+squares ($l_N$) and the total number of Latin squares @McKay2005NumberLS ($L_N$):
 $ L_N = N! times (N-1)! times l_N $
 
 4. However the counting of quantum Latin squares is more complex than classical Latin squares but we try to make relationship with classical Latin squares for counting QLS 
