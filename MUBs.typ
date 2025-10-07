@@ -708,4 +708,118 @@ Thus, we have shown that for prime dimension $p$, there exist exactly $p+1$ mutu
 #definition([Quantum Latin Square @musto2017ConstructingMutuallyUnbiased])[
   A quantum Latin square (QLS) of order $n$ is an $n times n$ array of elements of Hilbert space $CC^n$, such that every row and every column is an orthonormal basis.]
 
+*Example:*
+We can construct a quantum Latin square or a set of quantum Latin squares from Fourier bases for any dimensions $d$ when $d$ is a prime $p$.
+
+From given equation of Fourier basis for prime $p$ where $r = 0$:
+
+  $
+    ket(u_k ^((r))) &= 1/sqrt(p) sum_(l=0)^(p-1) omega^(r l^2 + k l) ket(l)\
+    ket(u_k ^((0)))&= 1/sqrt(p) sum_(l=0)^(p-1) omega^(k l) ket(l)
+  $
+
+If we take $p = 5$, then we get the following Fourier basis $cal(B)_0$:
+
+$ k = 0: quad ket(u_0 ^((0))) = 1/sqrt(5) (1 ket(0), 1 ket(1), 1 ket(2), 1 ket(3), 1 ket(4)) $
+$ k = 1: quad ket(u_1 ^((0))) = 1/sqrt(5) (1 ket(0), omega ket(1), omega^2 ket(2), omega^3 ket(3), omega^4 ket(4)) $
+$ k = 2: quad ket(u_2 ^((0))) = 1/sqrt(5) (1 ket(0), omega^2 ket(1), omega^4 ket(2), omega ket(3), omega^3 ket(4)) $
+$ k = 3: quad ket(u_3 ^((0))) = 1/sqrt(5) (1 ket(0), omega^3 ket(1), omega ket(2), omega^4 ket(3), omega^2 ket(4)) $
+$ k = 4: quad ket(u_4 ^((0))) = 1/sqrt(5) (1 ket(0), omega^4 ket(1), omega^3 ket(2), omega^2 ket(3), omega ket(4)) $ 
+where $omega = e^(2 pi i / 5)$ is a primitive fifth root of unity.
+
+We can arrange these vectors in a $5 times 5$ array, where each row corresponds to a vector $ket(u_k ^((0)))$ for $k = 0, 1, 2, 3, 4$:
+
+$
+#table(
+  // Define 6 columns: 1 for the rotated 'l' header, 5 for 'k' data.
+  columns: 6,
+  // Set the alignment for all cells to the center.
+  align: center,
+
+  // This is the main header row for the columns (k).
+  table.header(
+    [],             // The top-left corner cell is empty.
+    [$k=0$],         // Header for the first data column.
+    [$k=1$],
+    [$k=2$],
+    [$k=3$],
+    [$k=4$],
+  ),
+
+  // This creates the rotated vertical header for the rows (l).
+  // It spans all 5 data rows.
+  table.cell(
+    rowspan: 5,
+    align: horizon, // Aligns the content vertically in the middle.
+    [$l$],
+  ),
+
+  // --- DATA ROWS START HERE ---
+
+  // Row for l=0
+  [$1 ket(0)$], [$1 ket(0)$], [$1 ket(0)$], [$1 ket(0)$], [$1 ket(0)$],
+
+  // Row for l=1
+  [$1 ket(1)$], [$omega ket(1)$], [$omega^2 ket(1)$], [$omega^3 ket(1)$], [$omega^4 ket(1)$],
+
+  // Row for l=2
+  [$1 ket(2)$], [$omega^2 ket(2)$], [$omega^4 ket(2)$], [$omega ket(2)$], [$omega^3 ket(2)$],
+
+  // Row for l=3
+  [$1 ket(3)$], [$omega^3 ket(3)$], [$omega ket(3)$], [$omega^4 ket(3)$], [$omega^2 ket(3)$],
+
+  // Row for l=4
+  [$1 ket(4)$], [$omega^4 ket(4)$], [$omega^3 ket(4)$], [$omega^2 ket(4)$], [$omega ket(4)$],
+)
+$
+
+We get the set of following vectors from Fourier bases $cal(B)_0$ of dimension $p = 5$:
+
+$
+cal(B)_0
+= { ket(u_0), ket(u_1), ket(u_2), ket(u_3), ket(u_4) } $
+
+We can construct a quantum Latin square of order $5$ using these vectors as follows (each vector is a orthonormal quantum state):
+
+$
+#table(
+  columns: 5,
   
+  [$ket(u_0)$], [$ket(u_1)$], [$ket(u_2)$], [$ket(u_3)$], [$ket(u_4)$],
+  [$ket(u_1)$], [$ket(u_2)$], [$ket(u_3)$], [$ket(u_4)$], [$ket(u_0)$],
+  [$ket(u_2)$], [$ket(u_3)$], [$ket(u_4)$], [$ket(u_0)$], [$ket(u_1)$],
+  [$ket(u_3)$], [$ket(u_4)$], [$ket(u_0)$], [$ket(u_1)$], [$ket(u_2)$],
+  [$ket(u_4)$], [$ket(u_0)$], [$ket(u_1)$], [$ket(u_2)$], [$ket(u_3)$]
+)
+$
+
+This array is a quantum Latin square because each row and each column contains an orthonormal basis of $CC^5$.
+
+*Questions:*
+1. How many distinct quantum Latin squares can we construct from the set of vectors of Fourier basis $cal(B)_0$ for prime $p$ and how many of then will be mutually orthogonal?
+
+2. Similarly we can construct a quantum Latin square from the set of vectors of standard basis $cal(B)_z$ and from the set of vectors of each bases in quadratic chirp for any prime dimension $p$ $cal(B)_1, cal(B)_2, cal(B)_3, ..., cal(B)_(p-1)$.
+
+3. There is not straightforward way to count the number of distinct classical Latin squares but there exist some techniques to estimate the number of classical Latin squares. 
+Let $l_N$ be the number of reduced Latin squares of order $N$.
+Any reduced square can be "un-reduced" to generate a larger
+set of general Latin squares by permuting its rows and columns.
+Specifically, we can: 
++ Permute the $N$ columns in $N!$ ways.
++ Permute the last $N-1$ rows (keeping the first row fixed) in $(N-1)!$ ways.
+
+This gives us a direct relationship between the number of reduced
+squares ($l_N$) and the total number of Latin squares ($L_N$):
+$ L_N = N! times (N-1)! times l_N $
+
+4. However the counting of quantum Latin squares is more complex than classical Latin squares but we try to make relationship with classical Latin squares for counting QLS 
+
+I think we can construct at least $p+1$ times more quantum Latin squares than the classical Latin squares for any prime dimension $p$.
+4. However the counting of quantum Latin squares is more complex than classical Latin squares but we try to make relationship with classical Latin squares for counting QLS.
+ - For example, in the above example of prime $p = 5$, we can construct a quantum Latin squares from the fourier basis $cal(B)_0$, 
+ - Similarly, we can construct QLS from the standard basis $cal(B)_z$ and from each of the four quadratic chirp bases $cal(B)_1, cal(B)_2, cal(B)_3, cal(B)_4$.
+ - If we assume we can get as many QLS from each basis as we can get classical Latin squares in same dimensions which is ($L_N = N! times (N-1)! times l_N$), so for each bases $cal(B_z), cal(B_0), ..., cal(B_4)$ we can construct at least $p+1$ times more quantum Latin squares than classical Latin squares.
+
+ $ 
+L_N^{(Q L S)} = (p+1) times N! times (N-1)! times l_N
+ $
